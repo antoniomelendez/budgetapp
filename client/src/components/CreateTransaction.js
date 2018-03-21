@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Modal, Button, form } from "react-bootstrap";
-import "./styles/Sidebar.css";
+import "../styles/Sidebar.css";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 import { ALL_TRANSACTIONS } from "./TransactionTable";
