@@ -1,49 +1,41 @@
-import React, { Component } from 'react';
-import CreateBudget from '../components/CreateBudget';
-import CreateTransaction from '../components/CreateTransaction';
-import AllCategories from '../components/AllCategories';
-import TransactionTable from '../components/TransactionTable';
-import '../styles/Content.css';
-import gql from 'graphql-tag';
-import { graphql, Mutation } from 'react-apollo';
-
-const CREATE_BUDGET = gql`
-  mutation {
-    createBudget(category: String!, amount: Float!) {
-      category
-      amount
-      balance
-    }
-  }
-`
-const CREATE_TRANSACTION = gql`
-  mutation {
-    createTransaction(category: String!, amount: Float!, date: String!, vendor: String!) {
-      category
-      amount
-      date
-      vendor
-      id
-    }
-  }
-`
+import React, { Component } from "react";
+import { CreateBudgetWithData } from "../components/CreateBudget";
+import { CreateTransactionWithData } from "../components/CreateTransaction";
+import { AllCategoriesWithData } from "../components/AllCategories";
+import { TransactionTableWithData } from "../components/TransactionTable";
+import "../styles/Content.css";
 
 class Content extends Component {
   render() {
-      return (
-        <div className="content">
-          <TransactionTable />
-          <CreateBudget 
-            show={this.props.showBudgetModal}
-            closeModal={this.props.hideBudgetModal}
-
-          />
-          <CreateTransaction 
-            show={this.props.showTransactionModal}
-            closeModal={this.props.hideTransactionModal}
-          />
-        </div>
-      )
+    return (
+      <div className="content">
+        {this.props.showTransactions ? (
+          <div className="content">
+            <TransactionTableWithData />
+            <CreateBudgetWithData
+              show={this.props.showBudgetModal}
+              closeModal={this.props.hideBudgetModal}
+            />
+            <CreateTransactionWithData
+              show={this.props.showTransactionModal}
+              closeModal={this.props.hideTransactionModal}
+            />
+          </div>
+        ) : (
+          <div className="content">
+            <AllCategoriesWithData />
+            <CreateBudgetWithData
+              show={this.props.showBudgetModal}
+              closeModal={this.props.hideBudgetModal}
+            />
+            <CreateTransactionWithData
+              show={this.props.showTransactionModal}
+              closeModal={this.props.hideTransactionModal}
+            />
+          </div>
+        )}
+      </div>
+    );
   }
 }
 

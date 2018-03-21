@@ -1,29 +1,40 @@
-import React, { Component } from 'react';
-import Category from './Category';
-import '../styles/Category.css';
-const data = [
-  {
-    "category": "Entertainment",
-    "amount": 100,
-    "balance": 85
-  },
-  {
-    "category": "Gas",
-    "amount": 200,
-    "balance": 20
-  },
-  {
-    "category": "Groceries",
-    "amount": 400,
-    "balance": 2
-  },
-];
-export default class AllCategories extends Component {
+import React, { Component } from "react";
+import Category from "./Category";
+import "../styles/Category.css";
+import gql from "graphql-tag";
+import { graphql } from "react-apollo";
+
+export const ALL_BUDGETS = gql`
+  query {
+    allBudgets {
+      category
+      amount
+      balance
+    }
+  }
+`;
+class AllCategories extends Component {
   render() {
+    console.log("CATEGORY PROPS", this.props.data);
     return (
       <div className="categories">
-        {data.map(budget => <Category category={budget.category} amount={budget.amount} balance={budget.balance} />)}
+        {this.props.data.allBudgets ? (
+          <div className="categories">
+            {this.props.data.allBudgets.map(budget => (
+              <Category
+                key={budget.category}
+                category={budget.category}
+                amount={budget.amount}
+                balance={budget.balance}
+              />
+            ))}
+          </div>
+        ) : (
+          <h3 className="categories">Please Create Some Budgets</h3>
+        )}
       </div>
-    )
+    );
   }
 }
+
+export const AllCategoriesWithData = graphql(ALL_BUDGETS)(AllCategories);

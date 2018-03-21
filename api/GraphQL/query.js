@@ -5,22 +5,22 @@ const {
   GraphQLObjectType,
   GraphQLNonNull,
   GraphQLList
-} = require('graphql');
+} = require("graphql");
 
-const Budget = require('./schemas/Budget.js');
-const BudgetDB = require('../data/budgetDB.js');
-const TransactionDB = require('../data/transactionDB.js');
-const Transaction = require('./schemas/Transaction.js');
+const Budget = require("./schemas/Budget.js");
+const BudgetDB = require("../data/budgetDB.js");
+const TransactionDB = require("../data/transactionDB.js");
+const Transaction = require("./schemas/Transaction.js");
 
 module.exports = new GraphQLObjectType({
-  name: 'Query',
-  description: '...',
+  name: "Query",
+  description: "...",
 
   fields: () => ({
     budget: {
       type: Budget,
       args: {
-        category: { type: GraphQLNonNull(GraphQLString) },
+        category: { type: GraphQLNonNull(GraphQLString) }
       },
       resolve(source, args, context) {
         return BudgetDB.getBudgetByCategory(args.category);

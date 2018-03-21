@@ -3,22 +3,21 @@ const {
   GraphQLString,
   GraphQLFloat,
   GraphQLObjectType
-} = require('graphql');
+} = require("graphql");
 
 module.exports = new GraphQLObjectType({
-  name: 'Budget',
-  description: '...',
+  name: "Budget",
+  description: "...",
 
   fields: () => ({
     category: {
       type: GraphQLString
     },
     amount: {
-      type: GraphQLFloat,
+      type: GraphQLFloat
     },
     balance: {
       type: GraphQLFloat
-    },
+    }
   })
 });
-

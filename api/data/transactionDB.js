@@ -1,4 +1,4 @@
-const EventEmitter = require('events');
+const EventEmitter = require("events");
 
 class Transactions extends EventEmitter {
   constructor() {
@@ -13,9 +13,9 @@ class Transactions extends EventEmitter {
       amount,
       date,
       vendor
-    }
+    };
     this.transactions[id] = transaction;
-    this.emit('transaction.added', transaction)
+    this.emit("transaction.added", transaction);
     return this.transactions[id];
   }
   getTransactionById(id) {
@@ -24,6 +24,6 @@ class Transactions extends EventEmitter {
   getTransactions() {
     return Object.keys(this.transactions).map(key => this.transactions[key]);
   }
-};
+}
 
 module.exports = new Transactions();
