@@ -1,7 +1,7 @@
 # Budget App
 ## How to run:
 * clone repository
-* navigate to project
+* navigate to project `cd budgetapp`
 * `npm install`
 * Start GraphQL server `npm start` 
 * Server will run on localhost:4000/graphql
