@@ -20,6 +20,7 @@ class AllCategories extends Component {
       <div className="categories">
         {this.props.data.allBudgets ? (
           <div className="categories">
+            <h1>View All Budgets</h1>
             {this.props.data.allBudgets.map(budget => (
               <Category
                 key={budget.category}

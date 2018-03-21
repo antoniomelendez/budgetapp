@@ -10,19 +10,25 @@ export default class Sidebar extends Component {
           className="sidebar-item"
           onClick={this.props.createBudgetModal}
         >
-          Create a budget
+          Create A Budget
         </NavItem>
         <NavItem
           className="sidebar-item"
           onClick={this.props.createTransactionModal}
         >
-          Create a transaction
+          Create A Transaction
         </NavItem>
-        <NavItem className="sidebar-item" onClick={this.props.hideTransactions}>
-          View all budgets
+        <NavItem  
+          className="sidebar-item"
+          onClick={this.props.hideTransactions}
+        >
+          View All Budgets
         </NavItem>
-        <NavItem className="sidebar-item" onClick={this.props.showTransactions}>
-          View all transactions
+        <NavItem 
+          className="sidebar-item"
+          onClick={this.props.showTransactions}
+        >
+          View All Transactions
         </NavItem>
       </Nav>
     );

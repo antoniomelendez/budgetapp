@@ -86,25 +86,25 @@ class CreateTransaction extends Component {
                 value={this.state.date}
                 onChange={this.handleDateChange}
                 type="text"
-                placeholder="date"
+                placeholder="Date"
               />
               <input
                 value={this.state.vendor}
                 onChange={this.handleVendorChange}
                 type="text"
-                placeholder="vendor"
+                placeholder="Vendor"
               />
               <input
                 value={this.state.amount}
                 onChange={this.handleAmountChange}
                 type="text"
-                placeholder="amount"
+                placeholder="Amount"
               />
               <input
                 value={this.state.category}
                 onChange={this.handleCategoryChange}
                 type="text"
-                placeholder="category"
+                placeholder="Category"
               />
               <Button type="submit" onClick={this.handleSubmit}>
                 Submit

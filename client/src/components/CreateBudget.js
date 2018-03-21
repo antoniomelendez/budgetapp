@@ -61,13 +61,13 @@ class CreateBudget extends Component {
                 value={this.state.amount}
                 onChange={this.handleAmountChange}
                 type="number"
-                placeholder="amount"
+                placeholder="Amount"
               />
               <input
                 value={this.state.category}
                 onChange={this.handleCategoryChange}
                 type="text"
-                placeholder="category"
+                placeholder="Category"
               />
               <Button type="submit" onClick={this.handleSubmit}>
                 Submit

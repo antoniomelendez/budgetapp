@@ -24,18 +24,10 @@ class TransactionTable extends Component {
           <h1>LOADING...</h1>
         ) : (
           <div style={{ width: "80vw" }}>
-            <h1 style={{ textAlign: "center" }}>TRANSACTIONS</h1>
+            <h1 style={{ textAlign: "center" }}>View All Transactions</h1>
             <ReactTable
               data={this.props.data.allTransactions}
               columns={[
-                {
-                  Header: "ID",
-                  columns: [
-                    {
-                      accessor: "id"
-                    }
-                  ]
-                },
                 {
                   Header: "Vendor",
                   columns: [
